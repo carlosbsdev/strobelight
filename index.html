@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- For IE 9 and below. ICO should be 32x32 pixels in size -->
+	<!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
+
+	<!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+	<link rel="apple-touch-icon-precomposed" href="css/disco.jpg">
+
+	<!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. -->
+	<link rel="icon" href="css/disco.jpg">
+	<title>Strobelight</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/color.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script>
+	/*
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-63614945-2', 'auto');
+	  ga('send', 'pageview');
+	*/
+	</script>
+  </head>
+  <body>
+  <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Strobelight <span class="alpha">v0.1</span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a class="twitter-share-button"
+			  href="https://twitter.com/intent/tweet?url=Strobelight" data-size="large">Tweet this!</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+				<a href="mailto:#" title="#"><span class="glyphicon glyphicon-envelope"></span> Help me (Send me suggestions, bugs, etc)</a>
+            </li>
+			<li>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="#">
+					<button class="btn btn-lg" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span> Donate</button>
+				</form>
+
+			</li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id="main" class="container">
+		<div class="col-xs-12 col-md-12 col-lg-12 text-center">
+			<div>
+				<button id="goParty" class="btn btn-lg btn-danger">GO! <br>(and press F11)</button>
+				<button id="stop" class="btn btn-lg btn-danger hide">STOP!</button>
+			</div>
+		</div>
+		<div id="yourParty" class="col-xs-12 col-md-7">
+			<h1>Configuration</h1><hr>
+			<div id="colors">
+			<h3>Colors</h3>
+				<div>
+					<span class="color">Color 1: <input type="color" id="color1" value="#FFFFFF"></span>
+					<span class="color">Color 2: <input type="color" id="color2" value="#000000"></span>
+				</div>
+			</div><hr>
+			<div id="velocity">
+			<h3>Velocity <span id="valueVelocity">0.25</span>s</h3>
+				<div>
+					<INPUT id="velocity" TYPE="RANGE" MIN="0.01" MAX="0.5" STEP="0.01" VALUE="0.25">
+					<h3>0 (Faster)<span class="pull-right">0.5 (Slower)</span></h3>
+					<label class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Danger of EPILEPSY</label>
+				</div>
+			</div><hr>
+			<div id="music" class="hide">
+				<h3>Music </h3>
+				<div id="msjUrl" class="alert alert-danger hide" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Enter a valid url!</div>
+				<div id="divMusic">
+					<div class="col-xs-12 col-md-9"><input type="text" id="youtubeUrl" class="form-control" placeholder="Example: https://www.youtube.com/watch?v=qyK25gsK9iw"></div>
+					<button id="okMusic" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> OK</button>
+				</div>
+				<div class="text-center">
+					<iframe id="video" class="" width="350" height="100" src="" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<div id="options" class="col-xs-12 col-md-4 col-md-offset-1">
+			<h1>Options</h1><hr>
+			<ul class="list-unstyled">
+				<li>
+					<label class="checkbox-inline"><input id="checkboxHide" type="checkbox" checked> Hide Menu, buttons, etc (Fullscreen)</label>
+				</li><br>
+				<li>
+					<label class="checkbox-inline"><input id="checkboxLoop" type="checkbox"> Music loop (Infinite)</label>
+				</li><br>
+				<li>
+					<button id="addColorButton" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add color</button>
+					<button id="resetColors" class="btn btn-sm btn-warning">Reset colors</button>
+				</li><br>
+				<li>
+					<button id="addMusicButton" class="btn btn-primary"><span class="glyphicon glyphicon-music"></span> Add music</button>
+					<button id="resetMusic" class="btn btn-sm btn-warning">Reset music</button>
+				</li><br>
+			</ul>
+			<hr>
+		</div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
